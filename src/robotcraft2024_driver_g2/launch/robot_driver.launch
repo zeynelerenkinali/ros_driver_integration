@@ -1,0 +1,3 @@
+<launch>
+    <node pkg="robotcraft2024_driver_g2" type="robot_driver.py" name="robot_driver"/>
+</launch>
