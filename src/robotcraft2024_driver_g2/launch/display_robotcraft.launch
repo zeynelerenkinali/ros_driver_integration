@@ -1,0 +1,11 @@
+<?xml version="1.0"?>
+<launch>
+      <param name="robot_description" textfile="$(find robotcraft_robot_description)/urdf/robotcraft.urdf" />
+      
+      <node name="rviz" pkg="rviz" type="rviz" args="-d $(find robotcraft_robot_description)/rviz/robotcraft_robot.rviz" />
+      
+      <node pkg="robot_state_publisher" type="robot_state_publisher" name="robot_state_publisher">
+            <remap from="joint_state" to="joint_state"/>
+            <param name="publish_frequency" type="double" value="15.0"/>
+    </node>
+</launch>

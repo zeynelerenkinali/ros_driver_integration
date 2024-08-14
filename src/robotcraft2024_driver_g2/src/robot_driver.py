@@ -1,26 +1,39 @@
 #!/usr/bin/env python3
 import rospy
 from geometry_msgs.msg import Pose
+from geometry_msgs.msg import Pose2D
 from nav_msgs.msg import Odometry
 from sensor_msgs.msg import Range
 from std_msgs.msg import Float32
 import tf
 
 def pose_callback(pose_msg):
+    # Convert Pose2D to Pose
+    pose = Pose()
+    pose.position.x = pose_msg.x
+    pose.position.y = pose_msg.y
+    pose.position.z = 0.0
+
+    # Assuming no orientation in Pose2D, setting it to a default value
+    pose.orientation.x = 0.0
+    pose.orientation.y = 0.0
+    pose.orientation.z = 0.0
+    pose.orientation.w = 1.0
 
     odom_msg = Odometry()
 
     odom_msg.header.stamp = rospy.Time.now()
     odom_msg.header.frame_id = "odom"
 
-    odom_msg.pose.pose = pose_msg
+    odom_msg.pose.pose = pose
 
     odom_pub.publish(odom_msg)
 
-    position = pose_msg.position
-    orientation = pose_msg.orientation
-
-    tf_broadcaster.sendTransform((position.x, position.y,position.z), (orientation.x, orientation.y, orientation.z, orientation.w), rospy.Time().now(), "base_link", "odom")
+    tf_broadcaster.sendTransform((pose.position.x, pose.position.y, pose.position.z),
+                                 (pose.orientation.x, pose.orientation.y, pose.orientation.z, pose.orientation.w),
+                                 rospy.Time.now(),
+                                 "base_link",
+                                 "odom")
 
 def front_sensor_callback(distance_msg):
     # Create a new Range message
@@ -79,7 +92,7 @@ def left_sensor_callback(distance_msg):
 if __name__ == "__main__":
     rospy.init_node("pose_to_odom")
 
-    rospy.Subscriber("/pose", Pose, pose_callback)
+    rospy.Subscriber("/pose", Pose2D, pose_callback)
 
     tf_broadcaster = tf.TransformBroadcaster()
 

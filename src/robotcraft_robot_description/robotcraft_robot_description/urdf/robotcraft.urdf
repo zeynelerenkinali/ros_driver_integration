@@ -1,0 +1,166 @@
+<?xml version="1.0"?>
+<robot name="robotcraft">
+    
+
+<!-- ..Material Definitions.. -->
+  <material name="black">
+    <color rgba="0 0 0 1"/>
+  </material>
+  <material name="white">
+    <color rgba="1 1 1 1"/>
+  </material>
+  <material name="red">
+    <color rgba="0.8 0 0 1"/>
+  </material>
+  <material name="green">
+    <color rgba="0 1 0 1"/>
+  </material>
+  <material name="purple">
+    <color rgba="0.5 0 0.5 1"/>
+  </material>
+  <material name="transparent">
+    <color rgba="0.6 0.6 0.6 0.35"/>
+  </material>
+  
+
+<!-- ..Link Definitions.. -->
+<link name="base_link">
+    <visual>
+      <origin rpy="0 0 3.14159265359" xyz="0.03 -0.005 -0.09"/> 
+        <geometry>
+            <mesh filename="package://robotcraft_robot_description/mesh/Black.stl" scale="0.001 0.001 0.001"/>
+        </geometry>
+        <material name="black"/>
+    </visual>
+</link>
+
+
+
+<link name="bottom_base">
+    <visual>
+        <geometry>
+            <mesh filename="package://robotcraft_robot_description/mesh/White.stl" scale="0.001 0.001 0.001"/>
+        </geometry>
+        <origin rpy="0 0 3.14159265359" xyz="0 -0.005 -0.11"/> 
+        <material name="white"/>
+    </visual>
+</link>
+
+
+<link name="acrylic_base">
+    <visual>
+        <geometry>
+            <mesh filename="package://robotcraft_robot_description/mesh/Transparent.stl" scale="0.001 0.001 0.001"/>
+        </geometry>
+        <origin rpy="0 0 3.14159265359" xyz="0 -0.005 -0.145"/>
+        <material name="transparent"/>
+    </visual>
+</link>
+
+
+<link name="arduino">
+    <visual>
+        <geometry>
+            <mesh filename="package://robotcraft_robot_description/mesh/Green.stl" scale="0.001 0.001 0.001"/>
+        </geometry>
+        <origin rpy="0 0 3.14159265359" xyz="0 -0.005 -0.17"/>
+        <material name="green"/>
+    </visual>
+</link>
+
+
+<link name="battery">
+    <visual>
+        <geometry>
+            <mesh filename="package://robotcraft_robot_description/mesh/Purple.stl" scale="0.001 0.001 0.001"/>
+        </geometry>
+        <origin rpy="0 0 3.14159265359" xyz="0.015 -0.005 -0.135"/>
+        <material name="purple"/>
+    </visual>
+</link>
+
+
+<link name="front_lf">
+    <visual>
+        <geometry>
+            <mesh filename="package://robotcraft_robot_description/mesh/Red.stl" scale="0.001 0.001 0.001"/>
+        </geometry>
+        <origin rpy="0 0 3.14159265359" xyz="-0.06 -0.005 -0.1"/>
+        <material name="red"/>
+    </visual>
+</link>
+
+
+<link name="back_lf"/>
+
+<link name="front_ir"/>
+
+<link name="right_ir"/>
+
+<link name="left_ir"/>
+
+
+    
+
+<!-- ..Joint Definitions..  -->
+
+    
+<joint name="base_link_to_bottom_base" type="fixed">
+    <parent link="base_link"/>
+    <child link="bottom_base"/>
+    <origin rpy="0 0 0" xyz="0 0 0.02"/>
+</joint>
+
+<joint name="base_link_to_arduino" type="fixed">
+    <parent link="base_link"/>
+    <child link="arduino"/>
+    <origin rpy="0 0 0" xyz="0 0 0.08"/>
+</joint>
+
+<joint name="base_link_to_battery" type="fixed">
+    <parent link="base_link"/>
+    <child link="battery"/>
+    <origin rpy="0 0 0" xyz="-0.015 0 0.045"/>
+</joint>
+
+
+<joint name="base_link_to_front_lf_sensor" type="fixed">
+    <parent link="base_link"/>
+    <child link="front_lf"/>
+    <origin rpy="0 0 0" xyz="0.06 0 0.01"/>
+</joint>
+
+
+<joint name="base_link_to_acrylic_base" type="fixed">
+    <parent link="base_link"/>
+    <child link="acrylic_base"/>
+    <origin rpy="0 0 0" xyz="0 0 0.055"/>
+</joint>
+
+<!-- 4 more joints: back_lf_sensor, front_ir, right_ir, left_ir -->
+
+<joint name="base_link_to_back_lf_sensor" type="fixed">
+    <parent link="base_link"/>
+    <child link="back_lf"/>
+    <origin rpy="0 0 0" xyz="-0.06 0 0.01"/>
+</joint>
+
+<joint name="base_link_to_front_ir_sensor" type="fixed">
+    <parent link="base_link"/>
+    <child link="front_ir"/>
+    <origin rpy="0 0 0" xyz="0.052 0 0.035"/>
+</joint>
+
+<joint name="base_link_to_right_ir_sensor" type="fixed">
+    <parent link="base_link"/>
+    <child link="right_ir"/>
+    <origin rpy="0 0 -0.78539816339" xyz="0.0438 -0.048 0.035"/>
+</joint>
+
+<joint name="base_link_to_left_ir_sensor" type="fixed">
+    <parent link="base_link"/>
+    <child link="left_ir"/>
+    <origin rpy="0 0 0.78539816339" xyz="0.0438 0.043 0.035"/>
+</joint>
+
+</robot>
