@@ -532,19 +532,6 @@ geometry_msgs_generate_messages_nodejs/fast:
 .PHONY : geometry_msgs_generate_messages_nodejs/fast
 
 #=============================================================================
-# Target rules for targets named rosserial_arduino_generate_messages_py
-
-# Build rule for target.
-rosserial_arduino_generate_messages_py: cmake_check_build_system
-	$(MAKE) -f CMakeFiles/Makefile2 rosserial_arduino_generate_messages_py
-.PHONY : rosserial_arduino_generate_messages_py
-
-# fast build rule for target.
-rosserial_arduino_generate_messages_py/fast:
-	$(MAKE) -f robotcraft2024_driver_g2/CMakeFiles/rosserial_arduino_generate_messages_py.dir/build.make robotcraft2024_driver_g2/CMakeFiles/rosserial_arduino_generate_messages_py.dir/build
-.PHONY : rosserial_arduino_generate_messages_py/fast
-
-#=============================================================================
 # Target rules for targets named std_msgs_generate_messages_cpp
 
 # Build rule for target.
@@ -999,6 +986,45 @@ tf2_msgs_generate_messages_nodejs/fast:
 	$(MAKE) -f robotcraft2024_driver_g2/CMakeFiles/tf2_msgs_generate_messages_nodejs.dir/build.make robotcraft2024_driver_g2/CMakeFiles/tf2_msgs_generate_messages_nodejs.dir/build
 .PHONY : tf2_msgs_generate_messages_nodejs/fast
 
+#=============================================================================
+# Target rules for targets named rosserial_arduino_generate_messages_py
+
+# Build rule for target.
+rosserial_arduino_generate_messages_py: cmake_check_build_system
+	$(MAKE) -f CMakeFiles/Makefile2 rosserial_arduino_generate_messages_py
+.PHONY : rosserial_arduino_generate_messages_py
+
+# fast build rule for target.
+rosserial_arduino_generate_messages_py/fast:
+	$(MAKE) -f robotcraft2024_driver_g2/CMakeFiles/rosserial_arduino_generate_messages_py.dir/build.make robotcraft2024_driver_g2/CMakeFiles/rosserial_arduino_generate_messages_py.dir/build
+.PHONY : rosserial_arduino_generate_messages_py/fast
+
+#=============================================================================
+# Target rules for targets named square_test
+
+# Build rule for target.
+square_test: cmake_check_build_system
+	$(MAKE) -f CMakeFiles/Makefile2 square_test
+.PHONY : square_test
+
+# fast build rule for target.
+square_test/fast:
+	$(MAKE) -f robotcraft2024_driver_g2/CMakeFiles/square_test.dir/build.make robotcraft2024_driver_g2/CMakeFiles/square_test.dir/build
+.PHONY : square_test/fast
+
+#=============================================================================
+# Target rules for targets named robotcraft_robot_description_xacro_generated_to_devel_space_
+
+# Build rule for target.
+robotcraft_robot_description_xacro_generated_to_devel_space_: cmake_check_build_system
+	$(MAKE) -f CMakeFiles/Makefile2 robotcraft_robot_description_xacro_generated_to_devel_space_
+.PHONY : robotcraft_robot_description_xacro_generated_to_devel_space_
+
+# fast build rule for target.
+robotcraft_robot_description_xacro_generated_to_devel_space_/fast:
+	$(MAKE) -f robotcraft_robot_description/robotcraft_robot_description/CMakeFiles/robotcraft_robot_description_xacro_generated_to_devel_space_.dir/build.make robotcraft_robot_description/robotcraft_robot_description/CMakeFiles/robotcraft_robot_description_xacro_generated_to_devel_space_.dir/build
+.PHONY : robotcraft_robot_description_xacro_generated_to_devel_space_/fast
+
 # Help Target
 help:
 	@echo "The following are some of the valid targets for this Makefile:"
@@ -1040,7 +1066,6 @@ help:
 	@echo "... geometry_msgs_generate_messages_cpp"
 	@echo "... tf2_msgs_generate_messages_py"
 	@echo "... geometry_msgs_generate_messages_nodejs"
-	@echo "... rosserial_arduino_generate_messages_py"
 	@echo "... std_msgs_generate_messages_cpp"
 	@echo "... rosgraph_msgs_generate_messages_lisp"
 	@echo "... tf_generate_messages_eus"
@@ -1076,6 +1101,9 @@ help:
 	@echo "... actionlib_generate_messages_nodejs"
 	@echo "... tf2_msgs_generate_messages_lisp"
 	@echo "... tf2_msgs_generate_messages_nodejs"
+	@echo "... rosserial_arduino_generate_messages_py"
+	@echo "... square_test"
+	@echo "... robotcraft_robot_description_xacro_generated_to_devel_space_"
 .PHONY : help
 
 

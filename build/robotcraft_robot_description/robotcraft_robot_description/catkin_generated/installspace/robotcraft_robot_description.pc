@@ -1,0 +1,8 @@
+prefix=/home/eren/robotcraft2024_driver_g2/install
+
+Name: robotcraft_robot_description
+Description: Description of robotcraft_robot_description
+Version: 0.0.0
+Cflags: 
+Libs: -L${prefix}/lib 
+Requires: 

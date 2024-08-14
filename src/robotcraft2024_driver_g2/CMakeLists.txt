@@ -156,6 +156,11 @@ include_directories(
 #   ${catkin_LIBRARIES}
 # )
 
+add_executable(square_test src/square_test.cpp)
+target_link_libraries(square_test
+  ${catkin_LIBRARIES}
+)
+
 #############
 ## Install ##
 #############

@@ -6,3 +6,4 @@
 # testing this directory and lists subdirectories to be tested as well.
 subdirs("gtest")
 subdirs("robotcraft2024_driver_g2")
+subdirs("robotcraft_robot_description/robotcraft_robot_description")

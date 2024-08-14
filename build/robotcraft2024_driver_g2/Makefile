@@ -80,6 +80,16 @@ install/fast: preinstall/fast
 	/usr/bin/cmake -P cmake_install.cmake
 .PHONY : install/fast
 
+# Special rule for the target list_install_components
+list_install_components:
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --cyan "Available install components are: \"Unspecified\""
+.PHONY : list_install_components
+
+# Special rule for the target list_install_components
+list_install_components/fast: list_install_components
+
+.PHONY : list_install_components/fast
+
 # Special rule for the target rebuild_cache
 rebuild_cache:
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --cyan "Running CMake to regenerate build system..."
@@ -124,16 +134,6 @@ edit_cache:
 edit_cache/fast: edit_cache
 
 .PHONY : edit_cache/fast
-
-# Special rule for the target list_install_components
-list_install_components:
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --cyan "Available install components are: \"Unspecified\""
-.PHONY : list_install_components
-
-# Special rule for the target list_install_components
-list_install_components/fast: list_install_components
-
-.PHONY : list_install_components/fast
 
 # The main all target
 all: cmake_check_build_system
@@ -451,21 +451,6 @@ geometry_msgs_generate_messages_nodejs: robotcraft2024_driver_g2/CMakeFiles/geom
 geometry_msgs_generate_messages_nodejs/fast:
 	cd /home/eren/robotcraft2024_driver_g2/build && $(MAKE) -f robotcraft2024_driver_g2/CMakeFiles/geometry_msgs_generate_messages_nodejs.dir/build.make robotcraft2024_driver_g2/CMakeFiles/geometry_msgs_generate_messages_nodejs.dir/build
 .PHONY : geometry_msgs_generate_messages_nodejs/fast
-
-# Convenience name for target.
-robotcraft2024_driver_g2/CMakeFiles/rosserial_arduino_generate_messages_py.dir/rule:
-	cd /home/eren/robotcraft2024_driver_g2/build && $(MAKE) -f CMakeFiles/Makefile2 robotcraft2024_driver_g2/CMakeFiles/rosserial_arduino_generate_messages_py.dir/rule
-.PHONY : robotcraft2024_driver_g2/CMakeFiles/rosserial_arduino_generate_messages_py.dir/rule
-
-# Convenience name for target.
-rosserial_arduino_generate_messages_py: robotcraft2024_driver_g2/CMakeFiles/rosserial_arduino_generate_messages_py.dir/rule
-
-.PHONY : rosserial_arduino_generate_messages_py
-
-# fast build rule for target.
-rosserial_arduino_generate_messages_py/fast:
-	cd /home/eren/robotcraft2024_driver_g2/build && $(MAKE) -f robotcraft2024_driver_g2/CMakeFiles/rosserial_arduino_generate_messages_py.dir/build.make robotcraft2024_driver_g2/CMakeFiles/rosserial_arduino_generate_messages_py.dir/build
-.PHONY : rosserial_arduino_generate_messages_py/fast
 
 # Convenience name for target.
 robotcraft2024_driver_g2/CMakeFiles/std_msgs_generate_messages_cpp.dir/rule:
@@ -992,6 +977,63 @@ tf2_msgs_generate_messages_nodejs/fast:
 	cd /home/eren/robotcraft2024_driver_g2/build && $(MAKE) -f robotcraft2024_driver_g2/CMakeFiles/tf2_msgs_generate_messages_nodejs.dir/build.make robotcraft2024_driver_g2/CMakeFiles/tf2_msgs_generate_messages_nodejs.dir/build
 .PHONY : tf2_msgs_generate_messages_nodejs/fast
 
+# Convenience name for target.
+robotcraft2024_driver_g2/CMakeFiles/rosserial_arduino_generate_messages_py.dir/rule:
+	cd /home/eren/robotcraft2024_driver_g2/build && $(MAKE) -f CMakeFiles/Makefile2 robotcraft2024_driver_g2/CMakeFiles/rosserial_arduino_generate_messages_py.dir/rule
+.PHONY : robotcraft2024_driver_g2/CMakeFiles/rosserial_arduino_generate_messages_py.dir/rule
+
+# Convenience name for target.
+rosserial_arduino_generate_messages_py: robotcraft2024_driver_g2/CMakeFiles/rosserial_arduino_generate_messages_py.dir/rule
+
+.PHONY : rosserial_arduino_generate_messages_py
+
+# fast build rule for target.
+rosserial_arduino_generate_messages_py/fast:
+	cd /home/eren/robotcraft2024_driver_g2/build && $(MAKE) -f robotcraft2024_driver_g2/CMakeFiles/rosserial_arduino_generate_messages_py.dir/build.make robotcraft2024_driver_g2/CMakeFiles/rosserial_arduino_generate_messages_py.dir/build
+.PHONY : rosserial_arduino_generate_messages_py/fast
+
+# Convenience name for target.
+robotcraft2024_driver_g2/CMakeFiles/square_test.dir/rule:
+	cd /home/eren/robotcraft2024_driver_g2/build && $(MAKE) -f CMakeFiles/Makefile2 robotcraft2024_driver_g2/CMakeFiles/square_test.dir/rule
+.PHONY : robotcraft2024_driver_g2/CMakeFiles/square_test.dir/rule
+
+# Convenience name for target.
+square_test: robotcraft2024_driver_g2/CMakeFiles/square_test.dir/rule
+
+.PHONY : square_test
+
+# fast build rule for target.
+square_test/fast:
+	cd /home/eren/robotcraft2024_driver_g2/build && $(MAKE) -f robotcraft2024_driver_g2/CMakeFiles/square_test.dir/build.make robotcraft2024_driver_g2/CMakeFiles/square_test.dir/build
+.PHONY : square_test/fast
+
+src/square_test.o: src/square_test.cpp.o
+
+.PHONY : src/square_test.o
+
+# target to build an object file
+src/square_test.cpp.o:
+	cd /home/eren/robotcraft2024_driver_g2/build && $(MAKE) -f robotcraft2024_driver_g2/CMakeFiles/square_test.dir/build.make robotcraft2024_driver_g2/CMakeFiles/square_test.dir/src/square_test.cpp.o
+.PHONY : src/square_test.cpp.o
+
+src/square_test.i: src/square_test.cpp.i
+
+.PHONY : src/square_test.i
+
+# target to preprocess a source file
+src/square_test.cpp.i:
+	cd /home/eren/robotcraft2024_driver_g2/build && $(MAKE) -f robotcraft2024_driver_g2/CMakeFiles/square_test.dir/build.make robotcraft2024_driver_g2/CMakeFiles/square_test.dir/src/square_test.cpp.i
+.PHONY : src/square_test.cpp.i
+
+src/square_test.s: src/square_test.cpp.s
+
+.PHONY : src/square_test.s
+
+# target to generate assembly for a file
+src/square_test.cpp.s:
+	cd /home/eren/robotcraft2024_driver_g2/build && $(MAKE) -f robotcraft2024_driver_g2/CMakeFiles/square_test.dir/build.make robotcraft2024_driver_g2/CMakeFiles/square_test.dir/src/square_test.cpp.s
+.PHONY : src/square_test.cpp.s
+
 # Help Target
 help:
 	@echo "The following are some of the valid targets for this Makefile:"
@@ -1000,6 +1042,7 @@ help:
 	@echo "... depend"
 	@echo "... install/strip"
 	@echo "... install"
+	@echo "... list_install_components"
 	@echo "... rosgraph_msgs_generate_messages_nodejs"
 	@echo "... actionlib_msgs_generate_messages_py"
 	@echo "... rosserial_arduino_generate_messages_cpp"
@@ -1021,7 +1064,6 @@ help:
 	@echo "... geometry_msgs_generate_messages_cpp"
 	@echo "... tf2_msgs_generate_messages_py"
 	@echo "... geometry_msgs_generate_messages_nodejs"
-	@echo "... rosserial_arduino_generate_messages_py"
 	@echo "... std_msgs_generate_messages_cpp"
 	@echo "... rosgraph_msgs_generate_messages_lisp"
 	@echo "... tf_generate_messages_eus"
@@ -1059,7 +1101,11 @@ help:
 	@echo "... actionlib_generate_messages_nodejs"
 	@echo "... tf2_msgs_generate_messages_lisp"
 	@echo "... tf2_msgs_generate_messages_nodejs"
-	@echo "... list_install_components"
+	@echo "... rosserial_arduino_generate_messages_py"
+	@echo "... square_test"
+	@echo "... src/square_test.o"
+	@echo "... src/square_test.i"
+	@echo "... src/square_test.s"
 .PHONY : help
 
 
