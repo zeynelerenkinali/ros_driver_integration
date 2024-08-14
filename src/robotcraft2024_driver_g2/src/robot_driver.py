@@ -1,3 +1,4 @@
+#!/usr/bin/env python3
 import rospy
 from geometry_msgs.msg import Pose
 from nav_msgs.msg import Odometry
@@ -92,6 +93,6 @@ if __name__ == "__main__":
     right_sensor_pub = rospy.Publisher("/ir_right_sensor", Range, queue_size=10)
     left_sensor_pub = rospy.Publisher("/ir_left_sensor", Range, queue_size=10)
 
-    rospy.spin
+    rospy.spin()
 
 
