@@ -3,6 +3,4 @@
     <param name="port" value="/dev/ttyACM0"/>
     <param name="baud" value="115200"/>
   </node>
-
-  <include file="$(find robotcraft2024_driver_g2)/launch/robot_driver.launch"/>
 </launch>
