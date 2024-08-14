@@ -11,8 +11,8 @@ iostream
 -
 ros/ros.h
 /home/eren/robotcraft2024_driver_g2/src/robotcraft2024_driver_g2/src/ros/ros.h
-sensor_msgs/LaserScan.h
-/home/eren/robotcraft2024_driver_g2/src/robotcraft2024_driver_g2/src/sensor_msgs/LaserScan.h
+sensor_msgs/Range.h
+/home/eren/robotcraft2024_driver_g2/src/robotcraft2024_driver_g2/src/sensor_msgs/Range.h
 geometry_msgs/Twist.h
 /home/eren/robotcraft2024_driver_g2/src/robotcraft2024_driver_g2/src/geometry_msgs/Twist.h
 
@@ -702,7 +702,7 @@ ros/forwards.h
 
 /opt/ros/noetic/include/rosconsole/macros_generated.h
 
-/opt/ros/noetic/include/sensor_msgs/LaserScan.h
+/opt/ros/noetic/include/sensor_msgs/Range.h
 string
 -
 vector

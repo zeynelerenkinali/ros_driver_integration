@@ -1,26 +1,26 @@
 #include <iostream>
 
 #include "ros/ros.h"
-#include "sensor_msgs/LaserScan.h"
+#include "sensor_msgs/Range.h"
 #include "geometry_msgs/Twist.h"
 
 // Global variables for sensor messages
-sensor_msgs::LaserScan front_sensor_msg;
-sensor_msgs::LaserScan right_sensor_msg;
-sensor_msgs::LaserScan left_sensor_msg;
+sensor_msgs::Range front_sensor_msg;
+sensor_msgs::Range right_sensor_msg;
+sensor_msgs::Range left_sensor_msg;
 
 // Callback functions for sensor topics
-void front_scan_callback(const sensor_msgs::LaserScan::ConstPtr& front_sensor) 
+void front_scan_callback(const sensor_msgs::Range::ConstPtr& front_sensor) 
 {
     front_sensor_msg = *front_sensor;
 }
 
-void right_scan_callback(const sensor_msgs::LaserScan::ConstPtr& right_sensor) 
+void right_scan_callback(const sensor_msgs::Range::ConstPtr& right_sensor) 
 {
     right_sensor_msg = *right_sensor;
 }
 
-void left_scan_callback(const sensor_msgs::LaserScan::ConstPtr& left_sensor) 
+void left_scan_callback(const sensor_msgs::Rangex::ConstPtr& left_sensor) 
 {
     left_sensor_msg = *left_sensor;
 }
@@ -103,32 +103,20 @@ int main(int argc, char** argv)
     }
 }
 
-void collisionLineCheck()
+void collisionLineCheck() 
 {
     // Check front sensor
-    for (const auto& range : front_sensor_msg.ranges) 
-    {
-        if (range < 0.15) {
-            ROS_WARN("Collision risk! The robot is %.2f meters from an obstacle on the front side", range);
-            break;
-        }
+    if (front_sensor_msg.range < 150) {
+        ROS_WARN("Collision risk! The robot is %.2f meters from an obstacle on the front side", front_sensor_msg.range/1000);
     }
 
     // Check right sensor
-    for (const auto& range : right_sensor_msg.ranges) 
-    {
-        if (range < 0.15) {
-            ROS_WARN("Collision risk! The robot is %.2f meters from an obstacle on the right side", range);
-            break;
-        }
+    if (right_sensor_msg.range < 150) {
+        ROS_WARN("Collision risk! The robot is %.2f meters from an obstacle on the right side", right_sensor_msg.range/1000);
     }
 
     // Check left sensor
-    for (const auto& range : left_sensor_msg.ranges) 
-    {
-        if (range < 0.15) {
-            ROS_WARN("Collision risk! The robot is %.2f meters from an obstacle on the left side", range);
-            break;
-        }
+    if (left_sensor_msg.range < 150) {
+        ROS_WARN("Collision risk! The robot is %.2f meters from an obstacle on the left side", left_sensor_msg.range/1000);
     }
 }

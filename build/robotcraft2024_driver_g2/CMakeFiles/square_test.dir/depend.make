@@ -60,7 +60,7 @@ robotcraft2024_driver_g2/CMakeFiles/square_test.dir/src/square_test.cpp.o: /opt/
 robotcraft2024_driver_g2/CMakeFiles/square_test.dir/src/square_test.cpp.o: /opt/ros/noetic/include/ros/wall_timer.h
 robotcraft2024_driver_g2/CMakeFiles/square_test.dir/src/square_test.cpp.o: /opt/ros/noetic/include/ros/wall_timer_options.h
 robotcraft2024_driver_g2/CMakeFiles/square_test.dir/src/square_test.cpp.o: /opt/ros/noetic/include/rosconsole/macros_generated.h
-robotcraft2024_driver_g2/CMakeFiles/square_test.dir/src/square_test.cpp.o: /opt/ros/noetic/include/sensor_msgs/LaserScan.h
+robotcraft2024_driver_g2/CMakeFiles/square_test.dir/src/square_test.cpp.o: /opt/ros/noetic/include/sensor_msgs/Range.h
 robotcraft2024_driver_g2/CMakeFiles/square_test.dir/src/square_test.cpp.o: /opt/ros/noetic/include/std_msgs/Header.h
 robotcraft2024_driver_g2/CMakeFiles/square_test.dir/src/square_test.cpp.o: /opt/ros/noetic/include/xmlrpcpp/XmlRpcDecl.h
 robotcraft2024_driver_g2/CMakeFiles/square_test.dir/src/square_test.cpp.o: /opt/ros/noetic/include/xmlrpcpp/XmlRpcValue.h
