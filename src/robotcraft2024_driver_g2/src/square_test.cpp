@@ -1,5 +1,4 @@
 #include <iostream>
-
 #include "ros/ros.h"
 #include "sensor_msgs/Range.h"
 #include "geometry_msgs/Twist.h"
@@ -10,23 +9,13 @@ sensor_msgs::Range right_sensor_msg;
 sensor_msgs::Range left_sensor_msg;
 
 // Callback functions for sensor topics
-void front_scan_callback(const sensor_msgs::Range::ConstPtr& front_sensor) 
-{
-    front_sensor_msg = *front_sensor;
-}
+void front_scan_callback(const sensor_msgs::Range::ConstPtr& front_sensor);
 
-void right_scan_callback(const sensor_msgs::Range::ConstPtr& right_sensor) 
-{
-    right_sensor_msg = *right_sensor;
-}
+void right_scan_callback(const sensor_msgs::Range::ConstPtr& right_sensor);
 
-void left_scan_callback(const sensor_msgs::Rangex::ConstPtr& left_sensor) 
-{
-    left_sensor_msg = *left_sensor;
-}
+void left_scan_callback(const sensor_msgs::Rangex::ConstPtr& left_sensor);
 
 void collisionLineCheck();
-
 
 int main(int argc, char** argv)
 {   
@@ -37,7 +26,6 @@ int main(int argc, char** argv)
     ros::Subscriber ir_front_sensor_sub = nh.subscribe("/ir_front_sensor", 10, front_scan_callback);
     ros::Subscriber ir_right_sensor_sub = nh.subscribe("/ir_right_sensor", 10, right_scan_callback);
     ros::Subscriber ir_left_sensor_sub = nh.subscribe("/ir_left_sensor", 10, left_scan_callback);
-
 
     geometry_msgs::Twist move_cmd;
     geometry_msgs::Twist stop_cmd;
@@ -102,7 +90,6 @@ int main(int argc, char** argv)
         loop_rate.sleep();
     }
 }
-
 void collisionLineCheck() 
 {
     // Check front sensor
@@ -119,4 +106,18 @@ void collisionLineCheck()
     if (left_sensor_msg.range < 150) {
         ROS_WARN("Collision risk! The robot is %.2f meters from an obstacle on the left side", left_sensor_msg.range/1000);
     }
+}
+void front_scan_callback(const sensor_msgs::Range::ConstPtr& front_sensor) 
+{
+    front_sensor_msg = *front_sensor;
+}
+
+void right_scan_callback(const sensor_msgs::Range::ConstPtr& right_sensor) 
+{
+    right_sensor_msg = *right_sensor;
+}
+
+void left_scan_callback(const sensor_msgs::Rangex::ConstPtr& left_sensor) 
+{
+    left_sensor_msg = *left_sensor;
 }
