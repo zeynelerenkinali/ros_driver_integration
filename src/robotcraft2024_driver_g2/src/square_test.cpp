@@ -33,7 +33,7 @@ int main(int argc, char** argv)
     stop_cmd.linear.x = 0.0;
     stop_cmd.linear.z = 0.0;
 
-    double linear_speed = 0.08; // 0.08 max speed m/s
+    double linear_speed = 0.05; // 0.04 m/s
     double angular_speed = M_PI / 4; // to turn 45 degrees per second
     float side_length = 0.5; //m
     double turn_angle = M_PI / 2; // 90 degrees
@@ -48,7 +48,7 @@ int main(int argc, char** argv)
 
         switch(state)
         {
-            case 0: // Go forward for 0.5 m with 0.08 max speed
+            case 0: // Go forward
                 move_cmd.linear.x = linear_speed;
                 move_cmd.angular.z = 0.0;
                 if ((ros::Time::now() - start_time).toSec() >= side_length / linear_speed)//  ros::Time::now() - start_time).toSec() >= side_length / linear_speed with the help of this line when we change the linear_speed time will be adjusted aoutomatiacally we won't need to do anything else here
