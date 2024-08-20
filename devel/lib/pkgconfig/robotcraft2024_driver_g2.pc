@@ -5,4 +5,4 @@ Description: Description of robotcraft2024_driver_g2
 Version: 0.0.0
 Cflags: 
 Libs: -L${prefix}/lib 
-Requires: 
+Requires: geometry_msgs nav_msgs roscpp rospy rosserial_arduino rosserial_python sensor_msgs std_msgs tf message_runtime
