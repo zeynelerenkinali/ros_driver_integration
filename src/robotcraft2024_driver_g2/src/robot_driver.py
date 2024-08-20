@@ -5,25 +5,29 @@ from geometry_msgs.msg import Pose2D
 from nav_msgs.msg import Odometry
 from sensor_msgs.msg import Range
 from std_msgs.msg import Float32
+from tf.transformations import quaternion_from_euler
 import tf
 
 def pose_callback(pose_msg):
-    # Convert Pose2D to Pose
-    pose = Pose()
+    # Convert Pose2D to Pose(3D representation for rviz and ROS)
+    # Pose is a 3D representation, so z is set to 0.0, because robot moves in a flat plane.
+    pose = Pose() 
     pose.position.x = pose_msg.x
     pose.position.y = pose_msg.y
     pose.position.z = 0.0
-
-    # Assuming no orientation in Pose2D, setting it to a default value
-    pose.orientation.x = 0.0
-    pose.orientation.y = 0.0
-    pose.orientation.z = 0.0
-    pose.orientation.w = 1.0
+    
+    # Convert theta to quaternion
+    quat = quaternion_from_euler(0, 0, pose_msg.theta)
+    pose.orientation.x = quat[0]
+    pose.orientation.y = quat[1]
+    pose.orientation.z = quat[2]
+    pose.orientation.w = quat[3]
 
     odom_msg = Odometry()
 
     odom_msg.header.stamp = rospy.Time.now()
     odom_msg.header.frame_id = "odom"
+    odom_msg.child_frame_id = "base_link"  # Add child_frame_id for the robot's base frame
 
     odom_msg.pose.pose = pose
 

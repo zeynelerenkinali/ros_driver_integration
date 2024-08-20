@@ -13,7 +13,7 @@ void front_scan_callback(const sensor_msgs::Range::ConstPtr& front_sensor);
 
 void right_scan_callback(const sensor_msgs::Range::ConstPtr& right_sensor);
 
-void left_scan_callback(const sensor_msgs::Rangex::ConstPtr& left_sensor);
+void left_scan_callback(const sensor_msgs::Range::ConstPtr& left_sensor);
 
 void collisionLineCheck();
 
@@ -93,17 +93,17 @@ int main(int argc, char** argv)
 void collisionLineCheck() 
 {
     // Check front sensor
-    if (front_sensor_msg.range < 150) {
+    if (front_sensor_msg.range <= 150 && front_sensor_msg.range >= 90) {
         ROS_WARN("Collision risk! The robot is %.2f meters from an obstacle on the front side", front_sensor_msg.range/1000);
     }
 
     // Check right sensor
-    if (right_sensor_msg.range < 150) {
+    if (right_sensor_msg.range <= 150 && right_sensor_msg.range >= 90) {
         ROS_WARN("Collision risk! The robot is %.2f meters from an obstacle on the right side", right_sensor_msg.range/1000);
     }
 
     // Check left sensor
-    if (left_sensor_msg.range < 150) {
+    if (left_sensor_msg.range <= 150 && left_sensor_msg.range >= 90) {
         ROS_WARN("Collision risk! The robot is %.2f meters from an obstacle on the left side", left_sensor_msg.range/1000);
     }
 }
@@ -117,7 +117,7 @@ void right_scan_callback(const sensor_msgs::Range::ConstPtr& right_sensor)
     right_sensor_msg = *right_sensor;
 }
 
-void left_scan_callback(const sensor_msgs::Rangex::ConstPtr& left_sensor) 
+void left_scan_callback(const sensor_msgs::Range::ConstPtr& left_sensor) 
 {
     left_sensor_msg = *left_sensor;
 }
